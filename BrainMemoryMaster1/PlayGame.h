@@ -10,6 +10,7 @@
 #import "SingletonClass.h"
 #import "ContineuorTryViewController.h"
 #import "mainLevel.h"
+<<<<<<< HEAD
 #import "ScoreViewController.h"
 
 @interface PlayGame : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate,UITextFieldDelegate,UIAlertViewDelegate>
@@ -18,6 +19,14 @@
     NSString *letter;
     NSArray *chars;
     int tryChance,count;
+=======
+
+@interface PlayGame : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>{
+    NSMutableArray *letters;
+    NSString *letter;
+    NSArray *chars;
+    int tryChance;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     int timeOver;
     int time;
     

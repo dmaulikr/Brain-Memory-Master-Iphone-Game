@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
@@ -29,4 +30,14 @@
 -(void)poostObjectGraph;
 -(void)beatFriend;
 -(void)requestLife;
+=======
+#import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
+
+@interface FirstAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic)FBSession *session;
+//- (BOOL)openSessionWithAllowLoginUI;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 @end

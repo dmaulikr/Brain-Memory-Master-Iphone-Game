@@ -11,7 +11,10 @@
 #import "ContineuorTryViewController.h"
 #import "mainLevel.h"
 #import "Levels.h"
+<<<<<<< HEAD
 #import "ScoreViewController.h"
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 @interface PlayGameLevel4 : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>{
     NSArray *colors;
     int differentCellNo;
@@ -20,9 +23,13 @@
     
     UIView *timeView;
     UIView *timeView1;
+<<<<<<< HEAD
     //------------------
     UICollectionViewCell  *cell1;
     //-----------------
+=======
+    
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     UICollectionViewCell *cell;
     UITextField *selectLetter;

@@ -10,9 +10,13 @@
 #import "SingletonClass.h"
 #import "ContineuorTryViewController.h"
 #import "mainLevel.h"
+<<<<<<< HEAD
 #import "ScoreViewController.h"
 @interface PlayGamelevel2 : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 {
+=======
+@interface PlayGamelevel2 : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>{
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     NSArray *colors;
     NSArray *colorName;
     UIColor *ansColor;

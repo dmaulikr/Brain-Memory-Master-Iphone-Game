@@ -12,8 +12,12 @@
     CGRect screenRect;
     int height1;
     int width1;
+<<<<<<< HEAD
     int check;
     }
+=======
+}
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 @end
 
@@ -32,6 +36,7 @@
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     check=0;
     
     screenRect = [[UIScreen mainScreen] bounds];
@@ -43,12 +48,20 @@
     [self createUI];
     // Do any additional setup after loading the view from its nib.
 }
+=======
+    screenRect = [[UIScreen mainScreen] bounds];
+    height1=screenRect.size.height;
+    width1=screenRect.size.width;
+    
+  }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 
 
 -(void)createUI{
     
     UIImageView *backImg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 00, width1, height1)];
+<<<<<<< HEAD
      if((width1==320)&&(height1==480)){
         backImg.image=[UIImage imageNamed:@"game2_choose_bg copy.png"];
     }
@@ -58,6 +71,19 @@
     else if((width1>=375)&&(height1>=667)){
         backImg.image=[UIImage imageNamed:@"game3_choose_bg copy.png"];
 
+=======
+    if((width1==320)&&(height1==480)){
+        backImg.image=[UIImage imageNamed:@"game_choose_bg.png"];
+            }
+    else if((width1==320)&&(height1>480)){
+        backImg.image=[UIImage imageNamed:@"game1_choose_bg.png"];
+    }
+    else if((width1>320)&&(height1<1000)){
+        backImg.image=[UIImage imageNamed:@"game2_choose_bg.png"];
+    }
+    else if((width1>400)&&(height1<1150)){
+        backImg.image=[UIImage imageNamed:@"game3_choose_bg.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
     else if((width1>600)&&(height1>1150)){
         backImg.image=[UIImage imageNamed:@"game4_choose_bg.png"];
@@ -69,10 +95,14 @@
     
 
 
+<<<<<<< HEAD
     NSArray *resultDisplay=[NSArray arrayWithObjects:@"Good Job",@"Brilliant",@"correct!" ,nil];
 //    UIView *devider=[[UIView alloc]initWithFrame:CGRectMake(0, width1/15+50, width1, 1)];
 //    devider.backgroundColor=[UIColor colorWithRed:(CGFloat)250/255 green:(CGFloat)250/255 blue:(CGFloat)250/255 alpha:1];
 //    [self.view addSubview:devider];
+=======
+    NSArray *resultDisplay=[NSArray arrayWithObjects:[UIImage imageNamed:@"goodjob.png"],[UIImage imageNamed:@"welldone.png"],[UIImage imageNamed:@"brilliant.png"],nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     
     
@@ -80,6 +110,7 @@
     tryAgain.frame=CGRectMake(width1*70/320,height1*325/480,width1*180/320,height1*35/480);
     tryAgain.backgroundColor=[UIColor clearColor];
     tryAgain.layer.cornerRadius=7.0f;
+<<<<<<< HEAD
     //[tryAgain setTitle:@"Try Again" forState:UIControlStateNormal];
     [tryAgain setBackgroundImage:[UIImage imageNamed:@"try_again_btn.png"] forState:UIControlStateNormal];
     tryAgain.layer.shadowColor=[UIColor whiteColor].CGColor;
@@ -91,6 +122,15 @@
     {
         [self.view addSubview:tryAgain];
     }
+=======
+    [tryAgain setBackgroundImage:[UIImage imageNamed:@"try_again_btn.png"] forState:UIControlStateNormal];
+    tryAgain.layer.shadowColor=[UIColor whiteColor].CGColor;
+    [tryAgain addTarget:self action:@selector(tryAgainAction) forControlEvents:UIControlEventTouchUpInside];
+        if(([SingletonClass sharedSingleton].level==1)||([SingletonClass sharedSingleton].level==3)||([SingletonClass sharedSingleton].level==9)){
+        [self.view addSubview:tryAgain];
+    }
+  
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     UIButton *contineu=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     contineu.frame=CGRectMake(width1*70/320,height1*280/480,width1*180/320,height1*35/480);
@@ -98,6 +138,7 @@
     contineu.backgroundColor=[UIColor clearColor];
     [contineu setBackgroundImage:[UIImage imageNamed:@"continue_btn.png"] forState:UIControlStateNormal];
     contineu.layer.cornerRadius=7.0f;
+<<<<<<< HEAD
     //[contineu setTitle:@"Continue" forState:UIControlStateNormal];
     //[[contineu titleLabel] setFont:[UIFont systemFontOfSize:width1/18];
     contineu.layer.shadowColor=[UIColor whiteColor].CGColor;
@@ -106,12 +147,19 @@
     //contineu.layer.borderColor=[UIColor redColor].CGColor;
     
     [self.view addSubview:contineu];
+=======
+    contineu.layer.shadowColor=[UIColor whiteColor].CGColor;
+    [contineu addTarget:self action:@selector(contineuAction) forControlEvents:UIControlEventTouchUpInside];
+      [self.view addSubview:contineu];
+    
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     
     UILabel *title=[[UILabel alloc]initWithFrame:CGRectMake(0,height1*220/480,width1,height1*50/480)];
     title.backgroundColor=[UIColor clearColor];
     title.textColor=[UIColor blackColor];
     title.textAlignment=NSTextAlignmentCenter;
+<<<<<<< HEAD
     title.font=[UIFont boldSystemFontOfSize:width1/18];
     
     
@@ -129,12 +177,43 @@
     else{
         if(_timeOver==true)
         {
+=======
+    title.font=[UIFont boldSystemFontOfSize:width1/15];
+    
+    
+    UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(width1*85/320,height1*80/480,width1*150/320,width1*130/320)];
+    [self.view addSubview:logo];
+    
+    if(_result==true){
+        int DispNo = arc4random_uniform(3);
+        if(DispNo==0){
+        logo.frame=CGRectMake(width1*65/320,height1*80/480,width1*190/320,width1*150/320);
+        }
+       else if(DispNo==1){
+            logo.frame=CGRectMake(width1*80/320,height1*60/480,width1*160/320,width1*160/320);
+        }
+       else {
+           logo.frame=CGRectMake(width1*85/320,height1*100/480,width1*150/320,width1*150/320);
+       }
+
+        logo.image=[resultDisplay objectAtIndex:DispNo];
+    }
+    else{
+        logo.frame=CGRectMake(width1*75/320,height1*80/480,width1*170/320,width1*130/320);
+        if(_timeOver==true){
+            logo.image=[UIImage imageNamed:@"uff.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
             title.text=@"Time Over!.";
             
         }
         else{
+<<<<<<< HEAD
             title.numberOfLines=2;
             title.text=@"Oh!\n Wrong Answer";
+=======
+            title.text=@"Oh! no";
+            logo.image=[UIImage imageNamed:@"uff.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         }
     }
     [self.view addSubview:title];
@@ -145,6 +224,7 @@
     
     
     //increase score
+<<<<<<< HEAD
     
     if(_result==true)
     {
@@ -333,10 +413,67 @@ back.titleLabel.textAlignment=NSTextAlignmentLeft;
     
         
     }*/
+=======
+    if(_result==true){
+        tryAgain.enabled=NO;
+        
+        [SingletonClass sharedSingleton].Score=[SingletonClass sharedSingleton].Score+(10*[SingletonClass sharedSingleton].mainLevel);
+        [SingletonClass sharedSingleton].levelScore=[SingletonClass sharedSingleton].levelScore+10;
+    }
+    else  if(_result==false){
+        [SingletonClass sharedSingleton].life--;
+    }
+    else if(_timeOver==true){
+        [SingletonClass sharedSingleton].life--;
+        
+    }
+    
+    if([SingletonClass sharedSingleton].levelScore>=30){
+        if([SingletonClass sharedSingleton].mainLevel==4){
+            
+        }
+        else{
+            [SingletonClass sharedSingleton].levelScore=0;
+            
+        }
+        
+        [SingletonClass sharedSingleton].mainLevel++;
+        
+    }
+    
+    
+   
+    
+    //------------------------------------------------
+    //check whether current score is highscore
+    //NSString *levelScore=[NSString stringWithFormat:@"levelScore%d",([SingletonClass sharedSingleton].level)];
+    
+        
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+     [self createUI];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+ 
+    if(([SingletonClass sharedSingleton].life==0)||(([SingletonClass sharedSingleton].levelScore==30)&&([SingletonClass sharedSingleton].mainLevel==5))){
+    ScoreViewController *scoreVw=[[ScoreViewController alloc]initWithNibName:@"ScoreViewController" bundle:nil];
+                             
+    scoreVw.modalPresentationStyle=UIModalTransitionStyleFlipHorizontal;
+                             
+    [self presentViewController:scoreVw animated:YES completion:nil];
+    
+        
+    }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 
 
+<<<<<<< HEAD
 -(void)tryAgainAction{
     if([SingletonClass sharedSingleton].life==0)
     {
@@ -364,11 +501,18 @@ back.titleLabel.textAlignment=NSTextAlignmentLeft;
    self.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
     [self dismissViewControllerAnimated:YES completion:nil];
     }
+=======
+
+-(void)tryAgainAction{
+    self.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+    [self dismissViewControllerAnimated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 }
 
 
 -(void)contineuAction{
+<<<<<<< HEAD
     //__________________________________
     
    // if([SingletonClass sharedSingleton].Score>=30/*||([SingletonClass sharedSingleton].life==0)*/){
@@ -416,6 +560,9 @@ back.titleLabel.textAlignment=NSTextAlignmentLeft;
 
     //______________________________________
  else   if([SingletonClass sharedSingleton].level==2){
+=======
+    if([SingletonClass sharedSingleton].level==2){
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         PlayGamelevel2 *play=[[PlayGamelevel2 alloc]initWithNibName:@"PlayGamelevel2" bundle:nil];
         [self presentViewController:play animated:YES completion:nil];
     }
@@ -480,16 +627,23 @@ back.titleLabel.textAlignment=NSTextAlignmentLeft;
         }
     
     else if([SingletonClass sharedSingleton].level==1){
+<<<<<<< HEAD
        // if(count>=2)
         //{
         
       // else{
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         [SingletonClass sharedSingleton].noOfGame++;
         
         PlayGame *play=[[PlayGame alloc]initWithNibName:@"PlayGame" bundle:nil];
         [self presentViewController:play animated:YES completion:nil];
+<<<<<<< HEAD
             count++;
       // }
+=======
+
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
   }
 

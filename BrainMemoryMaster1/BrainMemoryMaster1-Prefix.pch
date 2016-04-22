@@ -13,6 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+<<<<<<< HEAD
 
 
 
@@ -24,4 +25,6 @@
 #define playerScore  @"Score"
 #define bannerId @"ca-app-pub-7881880964352996/9322342064"
 #define interstitialId @"ca-app-pub-7881880964352996/1659474465"
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 #endif

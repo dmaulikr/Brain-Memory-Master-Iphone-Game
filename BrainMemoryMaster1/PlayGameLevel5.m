@@ -12,7 +12,10 @@
     CGRect screenRect;
     int height1;
     int width1;
+<<<<<<< HEAD
     int alert5;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 @end
@@ -31,7 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     alert5=1;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     screenRect = [[UIScreen mainScreen] bounds];
     height1=screenRect.size.height;
@@ -53,6 +59,7 @@
 
 -(void)createUI{
     UIImageView *backImg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 00, width1, height1)];
+<<<<<<< HEAD
      if((width1==320)&&(height1==480)){
         backImg.image=[UIImage imageNamed:@"game2_choose_bg copy.png"];
     }
@@ -65,6 +72,22 @@
     }
     else if((width1>=414 && height1>=736)){
         backImg.image=[UIImage imageNamed:@"game_choose_bg6+.png"];
+=======
+    if((width1==320)&&(height1==480)){
+        backImg.image=[UIImage imageNamed:@"game_choose_bg.png"];
+    }
+    else if((width1==320)&&(height1>480)){
+        backImg.image=[UIImage imageNamed:@"game1_choose_bg.png"];
+    }
+    else if((width1>320)&&(height1<1000)){
+        backImg.image=[UIImage imageNamed:@"game2_choose_bg.png"];
+    }
+    else if((width1>400)&&(height1<1150)){
+        backImg.image=[UIImage imageNamed:@"game3_choose_bg.png"];
+    }
+    else if((width1>600)&&(height1>1150)){
+        backImg.image=[UIImage imageNamed:@"game4_choose_bg.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
     else if((width1>800)&&(height1>1700)){
         backImg.image=[UIImage imageNamed:@"game5_choose_bg.png"];
@@ -73,6 +96,7 @@
 
     timeOver=1;
     _mainLevel=[SingletonClass sharedSingleton].mainLevel;
+<<<<<<< HEAD
     if(_mainLevel==1)
     {
         time=4;
@@ -85,11 +109,25 @@
     }
     else if(_mainLevel==4){
         time=2;
+=======
+    if(_mainLevel==1){
+        time=5;
+    }
+    else if(_mainLevel==2){
+        time=4;
+    }
+    else if(_mainLevel==3){
+        time=3.5;
+    }
+    else if(_mainLevel==4){
+        time=3;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
 
     self.view.backgroundColor=[UIColor blackColor];
     //-----------------------------------------------------
     //bottom view
+<<<<<<< HEAD
     UILabel *scoreLab=[[UILabel alloc]init];
     if ((width1>=375)&&(height1>=667)) {
         scoreLab.frame=CGRectMake(width1-115,width1/15,width1/4,40);
@@ -98,12 +136,19 @@
         scoreLab.frame=CGRectMake(width1-90,width1/15,width1/4,40);
     }
 
+=======
+    UILabel *scoreLab=[[UILabel alloc]initWithFrame:CGRectMake(230*width1/320,width1/15,90*width1/320,40)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.textColor=[UIColor blueColor];
     scoreLab.textAlignment=NSTextAlignmentCenter;
     scoreLab.font=[UIFont systemFontOfSize:width1/20];
     scoreLab.layer.shadowColor=[UIColor whiteColor].CGColor;
     //title.font=[UIFont boldsystemFontOfSize:20.0f];
+<<<<<<< HEAD
     NSString *score=[NSString stringWithFormat:@"Score:%d",[SingletonClass sharedSingleton].Score];
+=======
+    NSString *score=[NSString stringWithFormat:@"Score: %d",[SingletonClass sharedSingleton].Score];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.text=score;
     [self.view addSubview:scoreLab];
     
@@ -134,7 +179,11 @@
     levelLabel.textAlignment=NSTextAlignmentCenter;
     levelLabel.layer.shadowColor=[UIColor whiteColor].CGColor;
     levelLabel.font=[UIFont systemFontOfSize:width1/20];
+<<<<<<< HEAD
     NSString *levelStr=[NSString stringWithFormat:@"Game:%d",(int)[SingletonClass sharedSingleton].level];
+=======
+    NSString *levelStr=[NSString stringWithFormat:@"level: %d",(int)[SingletonClass sharedSingleton].level];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     levelLabel.text=levelStr;
     [self.view addSubview:levelLabel];
     
@@ -179,6 +228,7 @@
     
     NSArray *chars=[NSArray arrayWithObjects:@"a",@" b",@" c",@" d",@" e",@" f",@" g",@" h",@" i",@" j",@" k",@" l",@" m",@" n",@" o",@" p",@" q",@" r",@" s",@" t",@" u",@" v",@" w",@" x",@" y",@" z",nil];
     
+<<<<<<< HEAD
     UITextView *viewAbcdDisplay=[[UITextView alloc]init];
     if(width1>=414&&height1>=736){
         viewAbcdDisplay.frame= CGRectMake(50, 190*height1/480, 300, 150);
@@ -187,6 +237,9 @@
     viewAbcdDisplay.frame=CGRectMake(25*width1/320, 190*height1/480, 270*width1/320, 100*height1/480);
         
     }
+=======
+    UITextView *viewAbcdDisplay=[[UITextView alloc]initWithFrame:CGRectMake(25*width1/320, 190*height1/480, 270*width1/320, 90*height1/480)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     viewAbcdDisplay.editable=NO;
     [self.view addSubview:viewAbcdDisplay];
     NSMutableString *charStr=[[NSMutableString alloc]init];
@@ -195,6 +248,7 @@
     NSLog(@"%d",shouldmissLeter);
     NSLog(@"%d",letterTobeMissed);
     
+<<<<<<< HEAD
     for(NSUInteger i=0;i<26;i++)
     {
         //conditon for not printing the missed letter
@@ -210,6 +264,19 @@
     viewAbcdDisplay.backgroundColor=[UIColor clearColor];
     viewAbcdDisplay.layer.borderColor=[UIColor blackColor].CGColor;
     viewAbcdDisplay.layer.borderWidth=.5;
+=======
+    for(NSUInteger i=0;i<26;i++){
+        if(!((shouldmissLeter==1)&&(letterTobeMissed==i))){
+            [charStr appendString:[chars objectAtIndex:i]];
+        }
+    }
+    //viewAbcdDisplay.font=[UIFont fontWithName:@"Knewave" size:25.0f];
+    viewAbcdDisplay.font=[UIFont boldSystemFontOfSize:width1/17];
+    viewAbcdDisplay.backgroundColor=[UIColor colorWithRed:(CGFloat)114/255 green:(CGFloat)76/255 blue:(CGFloat)12/255 alpha:0];
+    //viewAbcdDisplay.alpha=1;
+    viewAbcdDisplay.layer.borderColor=[UIColor blackColor].CGColor;
+    viewAbcdDisplay.layer.borderWidth=1.5;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     viewAbcdDisplay.textColor=[UIColor blackColor];
     viewAbcdDisplay.text=charStr;
 }
@@ -225,6 +292,7 @@
     [self.view addSubview:lifeView];
     
     
+<<<<<<< HEAD
     UILabel *highScore=[[UILabel alloc]init];
     if(width1==375&&height1==667 ){
         highScore.frame=CGRectMake(width1-180,0,width1/2-30,height1/17);
@@ -246,10 +314,20 @@
     NSLog(@"stored score===%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highScore5"]);
     
 
+=======
+    UILabel *highScore=[[UILabel alloc]initWithFrame:CGRectMake(width1/2+20,0,width1/2-30,height1/17)];
+    highScore.font=[UIFont systemFontOfSize:width1/20];
+    highScore.textAlignment=NSTextAlignmentRight;
+    highScore.layer.shadowColor=[UIColor whiteColor].CGColor;
+    NSString *levelScore=[NSString stringWithFormat:@"levelScore%d",[SingletonClass sharedSingleton].level];
+    highScore.textColor=[UIColor whiteColor];
+    NSInteger storedScore = [[NSUserDefaults standardUserDefaults] integerForKey:levelScore];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     highScore.text=[NSString stringWithFormat:@"Highscore:%d",(int)storedScore];
     
     
+<<<<<<< HEAD
     [lifeView addSubview:highScore];
     
     
@@ -289,10 +367,45 @@
     [alert1 show];
     alert1.delegate=self;
     
+=======
+    //[lifeView addSubview:highScore];
+    
+    
+    int x=5;
+    for(int i=0;i<5;i++){
+        UIImageView *life=[[UIImageView alloc]init];
+        if(i<[SingletonClass sharedSingleton].life){
+            life.image=[UIImage imageNamed:@"life.png"];
+        }
+        else{
+            life.image=[UIImage imageNamed:@"no_life.png"];
+        }
+
+        // UIImageView *life=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"life.png"]];
+        life.frame=CGRectMake(x,0, width1/12,width1/12);
+        x=x+width1/10+3;
+        [lifeView addSubview:life];
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+-(void)backButAction:(id)sender{
+    
+    Levels *go=[[Levels alloc]initWithNibName:@"Levels" bundle:nil];
+    go.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:go animated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 
     
 }
+<<<<<<< HEAD
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSLog(@"%ld",(long)buttonIndex);
     if(buttonIndex==0)
@@ -317,6 +430,8 @@
 
 
 
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 
 #pragma mark-
@@ -337,7 +452,11 @@
     }
     selectLetter.text=[NSString stringWithFormat:@"check whether any letter is missing"];
     [UIView animateWithDuration:time animations:^{
+<<<<<<< HEAD
         timeView1.frame=CGRectMake(60*width1/320, 150*height1/480, 200*width1/320, 10);
+=======
+        timeView1.frame=CGRectMake(60*width1/320, 150*height1/480, 200*width1/320, 10*width1/320);
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         
     }];
     
@@ -346,6 +465,7 @@
 
 
 -(void)waitTime{
+<<<<<<< HEAD
     timeView=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 150*height1/480, 200*width1/320, 10)];
     timeView.backgroundColor=[UIColor colorWithRed:(CGFloat)50/255 green:(CGFloat)50/255 blue:(CGFloat)50/255 alpha:1];
     timeView.layer.cornerRadius=7.0f;
@@ -354,6 +474,16 @@
     timeView1=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 150*height1/480,20,10)];
     timeView1.backgroundColor=[UIColor redColor];
     timeView1.layer.cornerRadius=7.0f;
+=======
+    timeView=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 150*height1/480, 200*width1/320, 10*width1/320)];
+    timeView.backgroundColor=[UIColor colorWithRed:(CGFloat)50/255 green:(CGFloat)50/255 blue:(CGFloat)50/255 alpha:1];
+    timeView.layer.cornerRadius=7.0*width1/320;
+    [self.view addSubview:timeView];
+    
+    timeView1=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 150*height1/480,20,10*width1/320)];
+    timeView1.backgroundColor=[UIColor redColor];
+    timeView1.layer.cornerRadius=7.0*width1/320;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     [self.view addSubview:timeView1];
 }
@@ -362,6 +492,7 @@
 #pragma mark- action after timeover
 //come here after time over
 -(void)timerOver{
+<<<<<<< HEAD
     if(timeOver==2){
         
     }
@@ -378,6 +509,14 @@
             [SingletonClass sharedSingleton].life--;
         }
     }
+=======
+    
+    timeOver=2;
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+    next.timeOver=true;
+    [self presentViewController:next animated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     
 }
@@ -385,9 +524,14 @@
 
 
 -(void)trueAction{
+<<<<<<< HEAD
     timeOver=2;
     ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
     next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+=======
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    //next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     
     if(shouldmissLeter!=1){
@@ -401,10 +545,16 @@
     
 }
 -(void)falseAction{
+<<<<<<< HEAD
     timeOver=2;
     
     ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
     next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+=======
+    
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    //next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     if(shouldmissLeter==1){
         next.result=true;
     }

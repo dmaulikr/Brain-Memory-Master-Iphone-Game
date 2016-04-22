@@ -12,10 +12,14 @@ static SingletonClass *sharedSingleton;
 @implementation SingletonClass
 
 
+<<<<<<< HEAD
 
 +(SingletonClass*)sharedSingleton{
        
     
+=======
++(SingletonClass*)sharedSingleton{
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     @synchronized(self){
         
         if(!sharedSingleton){

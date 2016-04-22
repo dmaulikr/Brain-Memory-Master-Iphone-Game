@@ -10,7 +10,10 @@
 #import "SingletonClass.h"
 #import "ContineuorTryViewController.h"
 #import "mainLevel.h"
+<<<<<<< HEAD
 #import "ScoreViewController.h"
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 @interface PlayGameLevel7 : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>{
     NSMutableArray *colors;
     int differentCellNo;
@@ -19,7 +22,10 @@
     int noOfClick;
     int blinkNo;
     
+<<<<<<< HEAD
     int t;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     BOOL answer;
     int cellColor;
     

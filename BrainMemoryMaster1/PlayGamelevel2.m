@@ -12,7 +12,10 @@
     CGRect screenRect;
     int height1;
     int width1;
+<<<<<<< HEAD
     int alertt;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 @end
@@ -31,7 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     alertt=1;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     screenRect = [[UIScreen mainScreen] bounds];
     height1=screenRect.size.height;
     width1=screenRect.size.width;
@@ -43,6 +49,7 @@
     
     _mainLevel=[SingletonClass sharedSingleton].mainLevel;
     
+<<<<<<< HEAD
     if((_mainLevel==1)||(_mainLevel==2))
         time=4;
     
@@ -67,11 +74,38 @@
     else if((width1>=414 && height1>=736)){
         backImg.image=[UIImage imageNamed:@"game_choose_bg6+.png"];
     }    else if((width1>800)&&(height1>1700)){
+=======
+    if((_mainLevel==1)||(_mainLevel==3)){
+        time=2.5;
+    }
+    else if((_mainLevel==2)||(_mainLevel==4)){
+        time=2;
+    }
+    
+        UIImageView *backImg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 00, width1, height1)];
+    if((width1==320)&&(height1==480)){
+        backImg.image=[UIImage imageNamed:@"game_choose_bg.png"];
+    }
+    else if((width1==320)&&(height1>480)){
+        backImg.image=[UIImage imageNamed:@"game1_choose_bg.png"];
+    }
+    else if((width1>320)&&(height1<1000)){
+        backImg.image=[UIImage imageNamed:@"game2_choose_bg.png"];
+    }
+    else if((width1>400)&&(height1<1150)){
+        backImg.image=[UIImage imageNamed:@"game3_choose_bg.png"];
+    }
+    else if((width1>600)&&(height1>1150)){
+        backImg.image=[UIImage imageNamed:@"game4_choose_bg.png"];
+    }
+    else if((width1>800)&&(height1>1700)){
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         backImg.image=[UIImage imageNamed:@"game5_choose_bg.png"];
     }
 
     [self.view addSubview:backImg];
     //-----------------------------------------------------
+<<<<<<< HEAD
     //top view
     
     UILabel *scoreLab=[[UILabel alloc]init];
@@ -82,13 +116,21 @@
         scoreLab.frame=CGRectMake(width1-90,width1/15,width1/4,40);
     }
 
+=======
+    //bottom view
+    UILabel *scoreLab=[[UILabel alloc]initWithFrame:CGRectMake(width1-width1/4,width1/15,width1/4,40)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.textColor=[UIColor blueColor];
     scoreLab.textAlignment=NSTextAlignmentCenter;
     //scoreLab.font=[UIFont systemFontOfSize:17.0f];
     scoreLab.layer.shadowColor=[UIColor whiteColor].CGColor;
     //title.font=[UIFont boldsystemFontOfSize:20.0f];
     scoreLab.font=[UIFont systemFontOfSize:width1/20];
+<<<<<<< HEAD
     NSString *score=[NSString stringWithFormat:@"Score:%d",[SingletonClass sharedSingleton].Score];
+=======
+    NSString *score=[NSString stringWithFormat:@"Score: %d",[SingletonClass sharedSingleton].Score];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.text=score;
     [self.view addSubview:scoreLab];
     
@@ -104,7 +146,11 @@
     levelLabel.layer.shadowColor=[UIColor whiteColor].CGColor;
     levelLabel.font=[UIFont systemFontOfSize:width1/20];
 
+<<<<<<< HEAD
     NSString *levelStr=[NSString stringWithFormat:@"Game:%d",(int)[SingletonClass sharedSingleton].level];
+=======
+    NSString *levelStr=[NSString stringWithFormat:@"level: %d",(int)[SingletonClass sharedSingleton].level];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     levelLabel.text=levelStr;
     [self.view addSubview:levelLabel];
     
@@ -140,6 +186,7 @@
     [self.view addSubview:lifeView];
     
     
+<<<<<<< HEAD
     
     UILabel *highScore=[[UILabel alloc]init];
     if(width1==375&&height1==667 ){
@@ -195,6 +242,42 @@
         
         [lifeView addSubview:life];
     }
+=======
+    UILabel *highScore=[[UILabel alloc]initWithFrame:CGRectMake(width1/2+20,0,width1/2-30,height1/17)];
+
+    highScore.textAlignment=NSTextAlignmentRight;
+    highScore.layer.shadowColor=[UIColor whiteColor].CGColor;
+    NSString *levelScore=[NSString stringWithFormat:@"levelScore%d",[SingletonClass sharedSingleton].level];
+    highScore.textColor=[UIColor whiteColor];
+    highScore.font=[UIFont systemFontOfSize:width1/20];
+    NSInteger storedScore = [[NSUserDefaults standardUserDefaults] integerForKey:levelScore];
+    
+    highScore.text=[NSString stringWithFormat:@"Highscore:%d",(int)storedScore];
+
+   // highScore.text=[NSString stringWithFormat:@"Highscore:%d",storedScore];
+    
+    //[lifeView addSubview:highScore];
+    
+    
+    int x=5;
+    for(int i=0;i<5;i++){
+        UIImageView *life=[[UIImageView alloc]init];
+        if(i<[SingletonClass sharedSingleton].life){
+            life.image=[UIImage imageNamed:@"life.png"];
+        }
+        else{
+            life.image=[UIImage imageNamed:@"no_life.png"];
+        }
+
+        // UIImageView *life=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"life.png"]];
+        life.frame=CGRectMake(x,0, width1/12,width1/12);
+        x=x+width1/10+3;
+        [lifeView addSubview:life];
+    }
+
+
+    
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     UIButton *back=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     if(width1==320){
@@ -221,6 +304,7 @@
 
 
 -(IBAction)backButAction1:(id)sender{
+<<<<<<< HEAD
     alertt=2;
     
     UIAlertView  *alert1=[[UIAlertView alloc]initWithTitle:@"Message"
@@ -251,6 +335,15 @@
 }
 
 
+=======
+    
+    Levels *go=[[Levels alloc]initWithNibName:@"Levels" bundle:nil];
+    go.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:go animated:YES completion:nil];
+    
+}
+
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 #pragma mark-
 #pragma mark- waitTime
 //time to memorise letters.
@@ -261,6 +354,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     if(!selectLetter){
+<<<<<<< HEAD
         
         //if(width1>=375&&height1>=667){
             selectLetter=[[UITextField alloc]initWithFrame:CGRectMake(0, 75, width1, 50)];
@@ -268,6 +362,9 @@
         //else{
         //selectLetter=[[UITextField alloc]initWithFrame:CGRectMake(0, height1*100/480, width1, 50)];
         //}
+=======
+        selectLetter=[[UITextField alloc]initWithFrame:CGRectMake(0, height1*100/480, width1, 50)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         
         selectLetter.font=[UIFont systemFontOfSize:width1/20];
         selectLetter.textAlignment=NSTextAlignmentCenter;
@@ -289,8 +386,12 @@
    
 
     [UIView animateWithDuration:time animations:^{
+<<<<<<< HEAD
         //timeView1.frame=CGRectMake(width1*60/320, height1*160/480, width1*200/320, 10);
         timeView1.frame=CGRectMake(width1/6, 120, width1-width1/3, 10);
+=======
+        timeView1.frame=CGRectMake(width1*60/320, height1*160/480, width1*200/320, 10*width1/320);
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         
     }];
     
@@ -299,6 +400,7 @@
 
 
 -(void)waitTime{
+<<<<<<< HEAD
     
     
     
@@ -314,6 +416,16 @@
         timeView1=[[UIView alloc]initWithFrame:CGRectMake(width1/6,120, 20,10)];
     timeView1.backgroundColor=[UIColor redColor];
     timeView1.layer.cornerRadius=7.0f;
+=======
+    timeView=[[UIView alloc]initWithFrame:CGRectMake(width1*60/320, height1*160/480, width1*200/320, 10*width1/320)];
+    timeView.backgroundColor=[UIColor colorWithRed:(CGFloat)50/255 green:(CGFloat)50/255 blue:(CGFloat)50/255 alpha:1];
+    timeView.layer.cornerRadius=7.0*width1/320;
+    [self.view addSubview:timeView];
+    
+    timeView1=[[UIView alloc]initWithFrame:CGRectMake(width1*60/320, height1*160/480, 20,10*width1/320)];
+    timeView1.backgroundColor=[UIColor redColor];
+    timeView1.layer.cornerRadius=7.0*width1/320;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     [self.view addSubview:timeView1];
 }
@@ -323,6 +435,7 @@
 //come here after time over
 -(void)timerOver{
     
+<<<<<<< HEAD
     if(timeOver==2)
     {
         
@@ -345,6 +458,13 @@
             [SingletonClass sharedSingleton].life--;
         }
     }
+=======
+    timeOver=2;
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+    next.timeOver=true;
+    [self presentViewController:next animated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     
 }
@@ -357,14 +477,21 @@
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+<<<<<<< HEAD
     layout.minimumInteritemSpacing = 5;
    /* if((_mainLevel==1)||(_mainLevel==2)){
     _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(width1*35/320, height1*200/480,width1*250/320,height1* 215/320) collectionViewLayout:layout];
+=======
+    layout.minimumInteritemSpacing = 10;
+    if((_mainLevel==1)||(_mainLevel==2)){
+    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(width1*35/320, height1*200/480,width1*250/320,height1* 150/320) collectionViewLayout:layout];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
     
     
      else if ((_mainLevel==3)||(_mainLevel==4)){
      _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(width1*35/320, height1*200/480,width1*250/320,height1* 215/320) collectionViewLayout:layout];
+<<<<<<< HEAD
      }*/
     
     if([SingletonClass sharedSingleton].Score>90){
@@ -384,6 +511,9 @@
 
     }
 
+=======
+     }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
      
     
     
@@ -402,6 +532,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+<<<<<<< HEAD
     
      if ([SingletonClass sharedSingleton].Score>150){
         return 24;
@@ -424,6 +555,18 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 5;
+=======
+     if((_mainLevel==1)|| (_mainLevel==2)){
+         return 6;
+     }
+     else{
+     return 9;
+     }
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -444,6 +587,7 @@
     int lettorNo1;
     if((_mainLevel==1)||(_mainLevel==2)){
     lettorNo= arc4random_uniform(11);
+<<<<<<< HEAD
         NSLog(@"letterno=%d",lettorNo);
     lettorNo1 = arc4random_uniform(11);
        NSLog(@"letterno1=%d",lettorNo1);
@@ -455,6 +599,15 @@
         NSLog(@"letterno1=%d",lettorNo1);
     }
     //NSLog(@"%d",lettorNo);
+=======
+    lettorNo1 = arc4random_uniform(11);
+    }
+    else{
+        lettorNo= arc4random_uniform(11);
+        lettorNo1 = arc4random_uniform(11);
+    }
+    NSLog(@"%d",lettorNo);
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     lab.text=[colorName objectAtIndex:lettorNo];
   
     lab.textColor=[colors objectAtIndex:lettorNo1];
@@ -473,6 +626,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+<<<<<<< HEAD
     timeOver=2;
     ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
     if([ansColor isEqual:[selectedColor objectAtIndex:indexPath.row]])
@@ -486,6 +640,16 @@
 
     }
     next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+=======
+    
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    if([ansColor isEqual:[selectedColor objectAtIndex:indexPath.row]]){
+        next.result=true;
+    }
+    else{
+        next.result=false;
+    }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     [self presentViewController:next animated:YES completion:nil];
     
 }

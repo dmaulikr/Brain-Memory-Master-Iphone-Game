@@ -20,6 +20,7 @@
 #import "PlayGameLevel7.h"
 #import "PlayLevel8.h"
 #import "Level9.h"
+<<<<<<< HEAD
 #import <Parse/Parse.h>
 #import <Bolts/Bolts.h>
 #import <sqlite3.h>
@@ -39,4 +40,16 @@
 -(void)checkHighScore;
 -(void)checkBeatFriends;
 -(void)retrievePlayerInfo;
+=======
+#import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
+#import <sqlite3.h>
+
+
+@interface ScoreViewController : UIViewController{
+sqlite3 *_databaseHandle;
+    NSMutableArray *localData;
+    int previousScore;
+}
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 @end

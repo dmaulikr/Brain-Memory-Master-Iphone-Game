@@ -10,7 +10,10 @@
 #import "SingletonClass.h"
 #import "ContineuorTryViewController.h"
 #import "mainLevel.h"
+<<<<<<< HEAD
 #import "ScoreViewController.h"
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 @interface PlayLevel8 : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>{
     int differentCellNo;

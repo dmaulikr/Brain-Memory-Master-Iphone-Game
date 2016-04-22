@@ -12,7 +12,10 @@
     CGRect screenRect;
     int height1;
     int width1;
+<<<<<<< HEAD
     int a;
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 @end
@@ -47,6 +50,7 @@
     }
     
     UIImageView *backImg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 00, width1, height1)];
+<<<<<<< HEAD
      if((width1==320)&&(height1==480)){
         backImg.image=[UIImage imageNamed:@"game2_choose_bg copy.png"];
     }
@@ -58,6 +62,22 @@
     }
     else if((width1>=414 && height1>=736)){
         backImg.image=[UIImage imageNamed:@"game_choose_bg6+.png"];
+=======
+    if((width1==320)&&(height1==480)){
+        backImg.image=[UIImage imageNamed:@"game_choose_bg.png"];
+    }
+    else if((width1==320)&&(height1>480)){
+        backImg.image=[UIImage imageNamed:@"game1_choose_bg.png"];
+    }
+    else if((width1>320)&&(height1<1000)){
+        backImg.image=[UIImage imageNamed:@"game2_choose_bg.png"];
+    }
+    else if((width1>400)&&(height1<1150)){
+        backImg.image=[UIImage imageNamed:@"game3_choose_bg.png"];
+    }
+    else if((width1>600)&&(height1>1150)){
+        backImg.image=[UIImage imageNamed:@"game4_choose_bg.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     }
     else if((width1>800)&&(height1>1700)){
         backImg.image=[UIImage imageNamed:@"game5_choose_bg.png"];
@@ -66,6 +86,7 @@
 
     //-----------------------------------------------------
     //bottom view
+<<<<<<< HEAD
     UILabel *scoreLab=[[UILabel alloc]init];
     if ((width1>=375)&&(height1>=667)) {
         scoreLab.frame=CGRectMake(width1-115,width1/15,width1/4,40);
@@ -73,12 +94,19 @@
     else{
         scoreLab.frame=CGRectMake(width1-90,width1/15,width1/4,40);
     }
+=======
+    UILabel *scoreLab=[[UILabel alloc]initWithFrame:CGRectMake(width1-width1/4,width1/15,width1/4,40)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.textColor=[UIColor blueColor];
     scoreLab.textAlignment=NSTextAlignmentCenter;
     scoreLab.font=[UIFont systemFontOfSize:width1/20];
     scoreLab.layer.shadowColor=[UIColor whiteColor].CGColor;
     //title.font=[UIFont boldsystemFontOfSize:20.0f];
+<<<<<<< HEAD
     NSString *score=[NSString stringWithFormat:@"Score:%d",[SingletonClass sharedSingleton].Score];
+=======
+    NSString *score=[NSString stringWithFormat:@"Score: %d",[SingletonClass sharedSingleton].Score];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     scoreLab.text=score;
     [self.view addSubview:scoreLab];
     
@@ -90,7 +118,11 @@
     levelLabel.textAlignment=NSTextAlignmentCenter;
     levelLabel.layer.shadowColor=[UIColor whiteColor].CGColor;
     levelLabel.font=[UIFont systemFontOfSize:width1/20];
+<<<<<<< HEAD
     NSString *levelStr=[NSString stringWithFormat:@"Game:%d",(int)[SingletonClass sharedSingleton].level];
+=======
+    NSString *levelStr=[NSString stringWithFormat:@"level: %d",(int)[SingletonClass sharedSingleton].level];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     levelLabel.text=levelStr;
     [self.view addSubview:levelLabel];
 
@@ -114,22 +146,31 @@
     [self.view addSubview:back];
     
     
+<<<<<<< HEAD
     UIView *devider=[[UIView alloc]initWithFrame:CGRectMake(0,height1/15+40, width1, 1)];
+=======
+    UIView *devider=[[UIView alloc]initWithFrame:CGRectMake(0,width1/15+45, width1, 1)];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     devider.backgroundColor=[UIColor colorWithRed:(CGFloat)250/255 green:(CGFloat)250/255 blue:(CGFloat)250/255 alpha:1];
     [self.view addSubview:devider];
     
     
     [self waitTime];
+<<<<<<< HEAD
     
          if([SingletonClass sharedSingleton].Score>60){
     colors=[NSArray arrayWithObjects:[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor],[UIColor brownColor],[UIColor greenColor],[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor],[UIColor brownColor],[UIColor greenColor], nil];
     colorsName=[NSArray arrayWithObjects:@"blue",@"white",@"red",@"yellow",@"brown",@"green",@"blue",@"white",@"red",@"yellow",@"brown",@"green",nil];
     }
    else{
+=======
+    if((_mainLevel==1)||(_mainLevel==2)){
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         
         colors=[NSArray arrayWithObjects:[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor],[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor], nil];
         colorsName=[NSArray arrayWithObjects:@"blue",@"white",@"red",@"yellow",@"blue",@"white",@"red",@"yellow",nil];
     }
+<<<<<<< HEAD
 
     
    
@@ -141,6 +182,49 @@
         for(int i=0;i<12;i++){
             int k=0;
             int no3;
+=======
+    else if((_mainLevel==3)||(_mainLevel==4)){
+    colors=[NSArray arrayWithObjects:[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor],[UIColor brownColor],[UIColor greenColor],[UIColor blueColor],[UIColor whiteColor],[UIColor redColor],[UIColor yellowColor],[UIColor brownColor],[UIColor greenColor], nil];
+    colorsName=[NSArray arrayWithObjects:@"blue",@"white",@"red",@"yellow",@"brown",@"green",@"blue",@"white",@"red",@"yellow",@"brown",@"green",nil];
+    }
+   
+    //call methode afetr time over
+    if((_mainLevel==1)||(_mainLevel==2)){
+    for(int i=0;i<8;i++){
+    int k=0;
+        int no3=0;
+        while(k<1){
+        no3=arc4random_uniform(8);
+        for(int j=0;j<i;j++){
+            if(sequence[j]==no3){
+                k=0;
+                break;
+                
+            }
+            
+            else{
+               k=2;
+            }
+       
+        }
+            if(i==0){
+                k=2;
+            }
+        }
+            sequence[i]=no3;
+        k=2;
+        NSLog(@"%d",no3);
+        
+    }
+    }
+    
+    
+    
+    if((_mainLevel==3)||(_mainLevel==4)){
+        for(int i=0;i<12;i++){
+            int k=0;
+            int no3=0;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
             while(k<1){
                 no3=arc4random_uniform(12);
                 for(int j=0;j<i;j++){
@@ -167,6 +251,7 @@
         
         
     }
+<<<<<<< HEAD
     else{
         for(int i=0;i<8;i++){
             int k=0;
@@ -196,12 +281,15 @@
         }
     }
 
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
     
     
     [self createCollectionView];
     
     [self performSelector:@selector(timerOver) withObject:nil afterDelay:(time+.3)];
+<<<<<<< HEAD
     int tempSequence[8];
     /*
     if((_mainLevel==1)||(_mainLevel==2)){
@@ -245,6 +333,9 @@
         
     }
      */
+=======
+    //int tempSequence[8];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 }
 
@@ -258,6 +349,7 @@
     [self.view addSubview:lifeView];
     
     
+<<<<<<< HEAD
     UILabel *highScore=[[UILabel alloc]init];
     if(width1==375&&height1==667 ){
         highScore.frame=CGRectMake(width1-180,0,width1/2-30,height1/17);
@@ -305,6 +397,33 @@
         
         x1=x1+width1/15+3;
         
+=======
+    UILabel *highScore=[[UILabel alloc]initWithFrame:CGRectMake(width1/2+20,0,width1/2-30,height1/17)];
+    highScore.textAlignment=NSTextAlignmentRight;
+    highScore.layer.shadowColor=[UIColor whiteColor].CGColor;
+    NSString *levelScore=[NSString stringWithFormat:@"levelScore%d",[SingletonClass sharedSingleton].level];
+    highScore.textColor=[UIColor whiteColor];
+    highScore.font=[UIFont systemFontOfSize:width1/22];
+    NSInteger storedScore = [[NSUserDefaults standardUserDefaults] integerForKey:levelScore];
+    
+    highScore.text=[NSString stringWithFormat:@"Highscore:%d",(int)storedScore];
+    
+    //[lifeView addSubview:highScore];
+    
+    
+    int x=5;
+    for(int i=0;i<5;i++){
+        UIImageView *life=[[UIImageView alloc]init];
+        if(i<[SingletonClass sharedSingleton].life){
+            life.image=[UIImage imageNamed:@"life.png"];
+        }
+        else{
+            life.image=[UIImage imageNamed:@"no_life.png"];
+        }
+        // UIImageView *life=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"life.png"]];
+        life.frame=CGRectMake(x,0, width1/12,width1/12);
+        x=x+width1/10+3;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         [lifeView addSubview:life];
     }
     
@@ -313,6 +432,7 @@
     
     
     
+<<<<<<< HEAD
     
     
 }
@@ -322,10 +442,19 @@
                                                    message:@" Want to quit the game?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
     [alert1 show];
     alert1.delegate=self;
+=======
+}
+-(void)backButAction{
+    
+    Levels *go=[[Levels alloc]initWithNibName:@"Levels" bundle:nil];
+    go.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:go animated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 
     
 }
+<<<<<<< HEAD
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"%ld",(long)buttonIndex);
@@ -350,6 +479,8 @@
 
 
 
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 
 #pragma mark-
@@ -370,12 +501,20 @@
 -(void)waitTime{
     timeView=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 120*height1/480, 200*width1/320, 10*height1/480)];
     timeView.backgroundColor=[UIColor colorWithRed:(CGFloat)50/255 green:(CGFloat)50/255 blue:(CGFloat)50/255 alpha:1];
+<<<<<<< HEAD
     timeView.layer.cornerRadius=7.0f;
+=======
+    timeView.layer.cornerRadius=7.0*width1/320;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     [self.view addSubview:timeView];
     
     timeView1=[[UIView alloc]initWithFrame:CGRectMake(60*width1/320, 120*height1/480, 20, 10*height1/480)];
     timeView1.backgroundColor=[UIColor redColor];
+<<<<<<< HEAD
     timeView1.layer.cornerRadius=7.0f;
+=======
+    timeView1.layer.cornerRadius=7.0*width1/320;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     [self.view addSubview:timeView1];
 }
@@ -401,6 +540,7 @@
     }
     int sum;
     
+<<<<<<< HEAD
     
     if ([SingletonClass sharedSingleton].Score>60){
         int number=arc4random_uniform(12);
@@ -414,13 +554,32 @@
             if(firstColor<6){
                 if(sum>5){
                     sum=sum-6;
+=======
+    if((_mainLevel==1)||(_mainLevel==2)){
+        int number=arc4random_uniform(8);
+        NSLog(@"%d",number);
+        firstColor=sequence[number];
+        
+
+        for(int i=0;i<8;i++){
+            sum=sequence[i];
+            if(firstColor<4){
+                if(sum>3){
+                    sum=sum-4;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
                     if(firstColor==sum)
                         secondColor=sequence[i];
                 }
             }
+<<<<<<< HEAD
             else if(firstColor>5){
                 if(sum<6){
                     sum=sum+6;
+=======
+            else if(firstColor>3){
+                if(sum<4){
+                    sum=sum+4;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
                     if(sum==firstColor)
                         secondColor=sequence[i];
                     
@@ -429,6 +588,7 @@
                 
             }
             
+<<<<<<< HEAD
             
         }
         
@@ -442,22 +602,44 @@
     
     else{
         int number=arc4random_uniform(8);
+=======
+
+        }
+    }
+    else if ((_mainLevel==3)||(_mainLevel==4)){
+        int number=arc4random_uniform(12);
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         NSLog(@"%d",number);
         firstColor=sequence[number];
         
 
+<<<<<<< HEAD
         for(int i=0;i<8;i++){
             sum=sequence[i];
             if(firstColor<4){
                 if(sum>3){
                     sum=sum-4;
+=======
+        
+        for(int i=0;i<12;i++){
+            sum=sequence[i];
+            if(firstColor<6){
+                if(sum>5){
+                    sum=sum-6;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
                     if(firstColor==sum)
                         secondColor=sequence[i];
                 }
             }
+<<<<<<< HEAD
             else if(firstColor>3){
                 if(sum<4){
                     sum=sum+4;
+=======
+            else if(firstColor>5){
+                if(sum<6){
+                    sum=sum+6;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
                     if(sum==firstColor)
                         secondColor=sequence[i];
                     
@@ -466,9 +648,21 @@
                 
             }
             
+<<<<<<< HEAD
 
         }
     }
+=======
+            
+        }
+
+        
+    }
+        
+        
+        
+        
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     NSLog(@"%d",firstColor);
     
@@ -532,6 +726,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+<<<<<<< HEAD
     if ([SingletonClass sharedSingleton].Score>60){
         return 12;
     }
@@ -540,6 +735,17 @@
     else{
         return 8;
     }
+=======
+    if((_mainLevel==1)||(_mainLevel==2)){
+     return 8;
+     }
+     else if ((_mainLevel==3)||(_mainLevel==4)){
+     return 12;
+     }
+     else{
+         return 0;
+     }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     /*
      else if (_mainLevel==3){
      return 16;
@@ -593,6 +799,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+<<<<<<< HEAD
     
     
     
@@ -606,6 +813,13 @@
         a=indexPath.row;
         if((sequence[indexPath.row]==firstColor)||(sequence[indexPath.row]==secondColor)){
             
+=======
+    if(timeOver==2){
+    
+    ContineuorTryViewController *next=[[ContineuorTryViewController alloc]initWithNibName:@"ContineuorTryViewController" bundle:nil];
+    if(clickNo==1){
+        if((sequence[indexPath.row]==firstColor)||(sequence[indexPath.row]==secondColor)){
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
             next.result=true;
             clickNo++;
             
@@ -615,9 +829,14 @@
         }
     }
     else if (clickNo==2){
+<<<<<<< HEAD
         NSLog(@"click 2------>%d",sequence[indexPath.row]);
         if(((sequence[indexPath.row]==firstColor)||(sequence[indexPath.row]==secondColor) )&& (indexPath.row!=a))
         {
+=======
+        NSLog(@"%d",sequence[indexPath.row]);
+        if((sequence[indexPath.row]==firstColor)||(sequence[indexPath.row]==secondColor)){
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
             
             next.result=true;
             clickNo++;
@@ -628,7 +847,11 @@
     }
     
     if((next.result ==false)||(clickNo==3)){
+<<<<<<< HEAD
         next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+=======
+        //next.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         [self presentViewController:next animated:YES completion:nil];
     }
     }

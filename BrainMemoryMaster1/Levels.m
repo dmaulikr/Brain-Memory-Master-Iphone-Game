@@ -7,11 +7,16 @@
 //
 
 #import "Levels.h"
+<<<<<<< HEAD
 
+=======
+#import <Parse/Parse.h>
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 @interface Levels (){
     CGRect screenRect;
     int height1;
     int width1;
+<<<<<<< HEAD
     Timer *t2;
     int game;
 GADBannerView *bannerView;
@@ -20,6 +25,8 @@ GADBannerView *bannerView;
     
     
 
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 @end
@@ -37,6 +44,7 @@ GADBannerView *bannerView;
 
 - (void)viewDidLoad
 {
+<<<<<<< HEAD
     [super viewDidLoad];
     
 //    for (NSString *fontFamilyName in [UIFont familyNames]) {
@@ -119,12 +127,88 @@ GADBannerView *bannerView;
         backImg.image=[UIImage imageNamed:@"game_choose_bg6+.png"];
     }
 
+=======
+    
+    [super viewDidLoad];
+    
+    if([SingletonClass sharedSingleton].networkStatus==true){
+       if([SingletonClass sharedSingleton].fbStatus==1){
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+           [currentInstallation setObject:[SingletonClass sharedSingleton].fbID forKey:@"FBID"];
+           [currentInstallation saveInBackground];
+           
+           
+           if([SingletonClass sharedSingleton].firstDisplayFriend!=2){
+           dispatch_async(dispatch_get_main_queue(),^{
+           [self method2];
+               [SingletonClass sharedSingleton].firstDisplayFriend=2;
+           });
+           }
+           /*
+           dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+              @autoreleasepool {
+                   
+                [self method2];
+               }});
+           }
+           */
+           
+           //[NSThread detachNewThreadSelector:@selector(method2) toTarget:self withObject:nil];
+           
+           
+           
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"First"]!=2){
+        
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"BMMScore2"];
+        [query whereKey:@"PlayerFBID" equalTo:[[NSUserDefaults standardUserDefaults]objectForKey:@"fbID"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(objects.count==0){
+               
+                PFObject *testObject = [PFObject objectWithClassName:@"BMMScore2"];
+                testObject[@"PlayerFBID"] = [SingletonClass sharedSingleton].fbID;
+                testObject[@"userName"] = [SingletonClass sharedSingleton].name;
+                for(int i=0;i<=9;i++){
+                    NSString *st=[NSString stringWithFormat:@"levelScore%d",i];
+                    testObject[st]=[NSNumber numberWithInteger:0];
+                }
+                [testObject saveInBackground];
+                [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"First"];
+            }
+        }];
+        
+        }
+    
+    }
+    }
+    screenRect = [[UIScreen mainScreen] bounds];
+    height1=screenRect.size.height;
+    width1=screenRect.size.width;
+    noOfCell=0;
+    UIImageView *backImg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 00, width1, height1)];
+    if((width1==320)&&(height1==480)){
+        backImg.image=[UIImage imageNamed:@"game_choose_bg.png"];
+    }
+    else if((width1==320)&&(height1>480)){
+        backImg.image=[UIImage imageNamed:@"game1_choose_bg.png"];
+    }
+    else if((width1>320)&&(height1<1000)){
+        backImg.image=[UIImage imageNamed:@"game2_choose_bg.png"];
+    }
+    else if((width1>400)&&(height1<1150)){
+        backImg.image=[UIImage imageNamed:@"game3_choose_bg.png"];
+    }
+    else if((width1>600)&&(height1>1150)){
+        backImg.image=[UIImage imageNamed:@"game4_choose_bg.png"];
+    }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     else if((width1>800)&&(height1>1700)){
         backImg.image=[UIImage imageNamed:@"game5_choose_bg.png"];
     }
 
     [self.view addSubview:backImg];
     
+<<<<<<< HEAD
     UIView *BackSecondView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
     BackSecondView.backgroundColor=[UIColor blackColor];
 
@@ -144,10 +228,22 @@ GADBannerView *bannerView;
     else{
     [back setBackgroundImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
     }
+=======
+    
+    
+    
+    UIButton *back=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    back.frame=CGRectMake(10*width1/320,30*height1/480,70*width1/320, 50*height1/480);
+    back.backgroundColor=[UIColor clearColor];
+    back.titleLabel.textAlignment=NSTextAlignmentLeft;
+    [back setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [back setBackgroundImage:[UIImage imageNamed:@"arr2.png"] forState:UIControlStateNormal];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     [back addTarget:self action:@selector(backButAction) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:back];
     
+<<<<<<< HEAD
     
        //[self.view addSubview:BackSecondView];
     
@@ -232,12 +328,29 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     [self.view addSubview:label];
     
 
+=======
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+
+    CGFloat t1=.07;
+    for(int i=0; i<9;i++){
+        [self performSelector:@selector(creatCollView) withObject:nil afterDelay:t1];
+        t1=t1+.07;
+    }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 }
 
 
 -(void)backButAction{
+<<<<<<< HEAD
     mainLevel *gotoMain=[[mainLevel alloc]initWithNibName:@"mainLevel" bundle:nil];
+=======
+    FirstViewController *gotoMain=[[FirstViewController alloc]init];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     [self presentViewController:gotoMain animated:YES completion:nil];
     
 }
@@ -245,26 +358,75 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 -(void)creatCollView{
     if(noOfCell!=0){
+<<<<<<< HEAD
         //is false
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     for(UICollectionView *view in self.view.subviews){
         if ([view isKindOfClass:[UICollectionView class]]) {
             [view removeFromSuperview];
         }
     }
     }
+<<<<<<< HEAD
     [self createCollectionView];
 }
 
 
 #pragma mark-
 #pragma mark- collection and methode
+=======
+    
+    [self createCollectionView];
+    
+}
+
+
+
+
+
+-(void)method2{
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result will contain an array with your user's friends in the "data" key
+            NSArray *friendObjects = [result objectForKey:@"data"];
+            friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+            // Create a list of friends' Facebook IDs
+            for (NSDictionary *friendObject in friendObjects) {
+                NSLog(@"%@",[friendObject objectForKey:@"id"]);
+                [friendIds addObject:[friendObject objectForKey:@"id"]];
+            }
+            
+    
+             PFQuery *friendQuery = [PFQuery queryWithClassName:@"BMMScore2"];
+             [friendQuery whereKey:@"PlayerFBID" containedIn:friendIds];
+             
+            [SingletonClass sharedSingleton].friendUsers = (NSMutableArray*)[friendQuery findObjects];
+            NSLog(@"%@",[SingletonClass sharedSingleton].friendUsers);
+        }
+    }];
+}
+
+
+
+
+#pragma mark-
+#pragma mark- collection and methode
+
+
+
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 -(void)createCollectionView{
     noOfCell++;
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     layout.minimumInteritemSpacing =5;
+<<<<<<< HEAD
    //make a view
+=======
+   
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(width1/16, height1/5, width1-width1/8,width1-width1/8) collectionViewLayout:layout];
        
     [_collectionView setDataSource:self];
@@ -284,10 +446,16 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 {
         return 9;
 }
+<<<<<<< HEAD
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 15;
+=======
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 5;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -299,6 +467,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     if(noOfCell>indexPath.row){
        
     
+<<<<<<< HEAD
         lab =[[UILabel alloc]initWithFrame:CGRectMake(10,25, width1/4-10, width1/8)];
         lab.textColor=[UIColor blueColor];
     //lab.backgroundColor=[UIColor colorWithRed:(CGFloat)255/255 green:(CGFloat)255/255 blue:(CGFloat)255/255 alpha:.05];
@@ -405,6 +574,13 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
         
         if(indexPath.row==0){
             rotateView.image=[UIImage imageNamed:@"identity_sequenceabc.png"];
+=======
+        
+    UIImageView *rotateView=[[UIImageView alloc]initWithFrame:CGRectMake(0,0,width1*90/320,width1*90/320)];
+   
+           if(indexPath.row==0){
+            rotateView.image=[UIImage imageNamed:@"missing_alphabet.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
         }
         else if (indexPath.row==1){
             rotateView.image=[UIImage imageNamed:@"color_identity.png"];
@@ -419,11 +595,19 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
   
         }
         else if (indexPath.row==4){
+<<<<<<< HEAD
             rotateView.image=[UIImage imageNamed:@"letter_missing.png"];
   
         }
         else if (indexPath.row==5){
             rotateView.image=[UIImage imageNamed:@"red_blue_cell.png"];
+=======
+            rotateView.image=[UIImage imageNamed:@"missing_alphabet.png"];
+  
+        }
+        else if (indexPath.row==5){
+            rotateView.image=[UIImage imageNamed:@"red_blue_cell.png.png"];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
   
         }
         else if (indexPath.row==6){
@@ -438,6 +622,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
             rotateView.image=[UIImage imageNamed:@"color_pair.png"];
  
         }
+<<<<<<< HEAD
         }
     [cell.contentView addSubview:rotateView];
     cell.layer.cornerRadius=45.0f;
@@ -446,6 +631,12 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     [lab.layer setShadowOffset:CGSizeMake(5, 0)];
     
         }
+=======
+    [cell.contentView addSubview:rotateView];
+    cell.layer.cornerRadius=45.0f;
+     cell.backgroundColor=[UIColor colorWithRed:(CGFloat)250/255 green:(CGFloat)250/255 blue:(CGFloat)250/255 alpha:.2];
+    }
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
     return cell;
     
@@ -453,6 +644,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+<<<<<<< HEAD
     //starting of the game all
     [SingletonClass sharedSingleton].level=(int)indexPath.row+1;
     [SingletonClass sharedSingleton].Score=0;
@@ -762,10 +954,22 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
         }
     }
     
+=======
+     [SingletonClass sharedSingleton].level=(int)indexPath.row+1;
+    [SingletonClass sharedSingleton].Score=0;
+    [SingletonClass sharedSingleton].life=5;
+    [SingletonClass sharedSingleton].levelScore=0;
+    [SingletonClass sharedSingleton].correntAns=0;
+    [SingletonClass sharedSingleton].mainLevel=1;
+    mainLevel *levelPlay=[[mainLevel alloc]initWithNibName:@"mainLevel" bundle:nil];
+       levelPlay.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+  [self presentViewController:levelPlay animated:YES completion:nil];
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
     
 }
 
 
+<<<<<<< HEAD
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -773,6 +977,15 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 }
 
 
+=======
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(width1*90/320,width1*90/320);
+}
+
+
+//not used methode
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 - (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
 {
@@ -794,6 +1007,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+<<<<<<< HEAD
 - (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial{
     
 }
@@ -903,5 +1117,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
             break;
     }
 }
+=======
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 @end

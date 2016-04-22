@@ -18,6 +18,7 @@
 #import "PlayGameLevel7.h"
 #import "PlayLevel8.h"
 #import "Level9.h"
+<<<<<<< HEAD
 #import "Timer.h"
 #import <Parse/Parse.h>
 #import <Bolts/Bolts.h>
@@ -40,5 +41,13 @@
 @property(nonatomic,assign)BOOL result;
 @property(nonatomic,assign)BOOL timeOver;
 @property(nonatomic,strong)NSUserDefaults *defaults1;
+=======
+
+
+@interface ContineuorTryViewController : UIViewController
+@property(nonatomic,assign)int tryChance;
+@property(nonatomic,assign)BOOL result;
+@property(nonatomic,assign)BOOL timeOver;
+>>>>>>> 6ff3866329b927c0d61b0b16efdb62cb5c83236f
 
 @end
